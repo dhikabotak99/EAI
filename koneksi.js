@@ -3,7 +3,7 @@ var mysql = require('mysql');
 //Buat Koneksi
 const conn = mysql.createConnection({
     host:'localhost',
-    users:'root',
+    user:'root',
     password:'',
     database:'perpustakaan'
 });
