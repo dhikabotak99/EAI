@@ -25,9 +25,9 @@ exports.tambahBuku = function(req,res){
     var judul = req.body.judul;
     var penulis = req.body.penulis;
     var stock = req.body.stock;
-    var kondisi = 'Tersedia';
+    var ketersediaan = 'Tersedia';
 
-    connection.query('INSERT INTO buku (judul, penulis, stock, kondisi) VALUES(?,?,?,?)',[judul,penulis,stock,kondisi],
+    connection.query('INSERT INTO buku (judul, penulis, stock, ketersediaan) VALUES(?,?,?,?)',[judul,penulis,stock,ketersediaan],
     function (error, rows, fields){
         if(error){
             console.log(error);
@@ -43,9 +43,9 @@ exports.ubahBuku = function(req,res){
     var judul = req.body.judul;
     var penulis = req.body.penulis;
     var stock = req.body.stock;
-    var kondisi = req.body.kondisi;
+    var ketersediaan = req.body.ketersediaan;
 
-    connection.query('UPDATE buku SET judul=?, penulis=?, stock=?, kondisi=? WHERE id=?', [judul, penulis, stock, kondisi, id],
+    connection.query('UPDATE buku SET judul=?, penulis=?, stock=?, ketersediaan=? WHERE id=?', [judul, penulis, stock, ketersediaan, id],
     function (error, rows, fields){
         if(error){
             console.log(error);
