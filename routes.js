@@ -17,4 +17,8 @@ module.exports = function(app) {
 
     app.route('/hapus')
     .delete(jsonku.hapusBuku);
+
+    app.get('/test', (req, res) => {
+        res.render('index');
+    });
 }

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Administrasi Perpustakaan</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Administrasi Perpustakaan</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/tambah">Tambah</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container-sm">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Judul</th>
+                        <th scope="col">Penulis</th>
+                        <th scope="col">Stock</th>
+                        <th scope="col">Ketersediaan</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% print.forEach(function (buku) { %>
+                        <tr>  
+                            <td><%= buku.id%></td>  
+                            <td><%= buku.judul %></td>  
+                            <td><%= buku.penulis %></td>
+                            <td><%= buku.stock %></td>
+                            <td><%= buku.ketersediaan %></td>
+                            <td>
+                                <form action="/hapus" method="get">
+                                    <input type="hidden" class="form-control" id="exampleInputEmail1" name="id" value="<%= buku.id%>">
+                                    <button type="submit" class="btn btn-danger">Hapus</button>
+                                </form>
+                            </td>
+                            <td><form action="/ubah"><button type="submit" class="btn btn-primary">Edit</button></form></td>
+                        </tr>                                   
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
